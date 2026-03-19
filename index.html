@@ -1,551 +1,36 @@
-const yearEl = document.getElementById("year");
-if (yearEl) {
-  yearEl.textContent = new Date().getFullYear();
-}:root {
-  --bg: #0f171f;
-  --panel: #162533;
-  --panel-soft: #1f3345;
-  --text: #f2f5f8;
-  --muted: #b7c4d3;
-  --accent: #ff6f3c;
-  --accent-alt: #ffc145;
-  --line: rgba(255, 255, 255, 0.12);
-  --shadow: 0 18px 50px rgba(0, 0, 0, 0.25);
-}
-
-* {
-  box-sizing: border-box;
-}
-
-html {
-  scroll-behavior: smooth;
-}
-
-body {
-  margin: 0;
-  font-family: "Manrope", sans-serif;
-  color: var(--text);
-  background: radial-gradient(circle at 85% -20%, #21496f 0%, transparent 40%),
-    radial-gradient(circle at -10% 20%, #603019 0%, transparent 35%),
-    var(--bg);
-  line-height: 1.5;
-}
-
-img,
-svg {
-  display: block;
-  max-width: 100%;
-}
-
-.wrap {
-  width: min(1120px, 92vw);
-  margin: 0 auto;
-}
-
-.section {
-  padding: 5.5rem 0;
-}
-
-.kicker {
-  margin: 0 0 0.75rem;
-  text-transform: uppercase;
-  letter-spacing: 0.12em;
-  color: var(--accent-alt);
-  font-size: 0.8rem;
-  font-weight: 700;
-}
-
-h1,
-h2,
-h3 {
-  margin: 0;
-  font-family: "Barlow Condensed", sans-serif;
-  line-height: 1.05;
-  letter-spacing: 0.01em;
-}
-
-h1 {
-  font-size: clamp(2.6rem, 8vw, 5rem);
-}
-
-h2 {
-  font-size: clamp(2rem, 4.8vw, 3.4rem);
-}
-
-h3 {
-  font-size: 1.85rem;
-}
-
-p {
-  margin: 0;
-  color: var(--muted);
-}
-
-.site-header {
-  position: sticky;
-  top: 0;
-  z-index: 20;
-  backdrop-filter: blur(10px);
-  background: rgba(12, 19, 27, 0.75);
-  border-bottom: 1px solid var(--line);
-}
-
-.nav-wrap {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  min-height: 78px;
-}
-
-.brand {
-  display: inline-flex;
-  align-items: center;
-  gap: 0.75rem;
-  color: var(--text);
-  text-decoration: none;
-  font-weight: 800;
-}
-
-.brand-mark {
-  width: 38px;
-  height: 38px;
-  border-radius: 8px;
-  display: grid;
-  place-items: center;
-  background: linear-gradient(145deg, var(--accent), #b24018);
-  font-family: "Barlow Condensed", sans-serif;
-  font-size: 1.5rem;
-}
-
-.brand-text {
-  font-family: "Barlow Condensed", sans-serif;
-  letter-spacing: 0.02em;
-  font-size: 1.5rem;
-}
-
-.main-nav {
-  display: flex;
-  align-items: center;
-  gap: 1.4rem;
-}
-
-.main-nav a {
-  color: var(--text);
-  text-decoration: none;
-  font-weight: 600;
-}
-
-.main-nav a:hover {
-  color: var(--accent-alt);
-}
-
-.btn {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  border-radius: 10px;
-  padding: 0.78rem 1.1rem;
-  text-decoration: none;
-  font-weight: 700;
-  border: 1px solid transparent;
-  transition: transform 180ms ease, box-shadow 180ms ease, background-color 180ms ease;
-}
-
-.btn:hover {
-  transform: translateY(-2px);
-}
-
-.btn-solid {
-  background: linear-gradient(145deg, var(--accent), #d05224);
-  color: #fff;
-  box-shadow: var(--shadow);
-}
-
-.btn-solid:hover {
-  background: linear-gradient(145deg, #ff7f52, #df5b2b);
-}
-
-.btn-outline {
-  border-color: var(--line);
-  color: var(--text);
-  background: rgba(255, 255, 255, 0.04);
-}
-
-.btn-nav {
-  padding: 0.5rem 0.85rem;
-  background: rgba(255, 255, 255, 0.08);
-  border: 1px solid var(--line);
-}
-
-.hero {
-  position: relative;
-  overflow: clip;
-  padding: 6rem 0 4.25rem;
-}
-
-.hero-bg-shape {
-  position: absolute;
-  width: 560px;
-  height: 560px;
-  right: -130px;
-  top: -200px;
-  background: radial-gradient(circle, rgba(255, 111, 60, 0.45), rgba(255, 111, 60, 0));
-  z-index: -1;
-}
-
-.hero-grid {
-  display: grid;
-  grid-template-columns: 1.25fr 0.9fr;
-  gap: 2.1rem;
-  align-items: start;
-}
-
-.hero-copy .lead {
-  margin-top: 1.1rem;
-  max-width: 60ch;
-  font-size: 1.08rem;
-}
-
-.hero-actions {
-  margin-top: 1.7rem;
-  display: flex;
-  gap: 0.8rem;
-  flex-wrap: wrap;
-}
-
-.hero-card {
-  padding: 1.6rem;
-  border-radius: 18px;
-  background: linear-gradient(165deg, rgba(255, 255, 255, 0.08), rgba(255, 255, 255, 0.02));
-  border: 1px solid var(--line);
-  box-shadow: var(--shadow);
-}
-
-.hero-card h2 {
-  font-size: 2rem;
-  margin-bottom: 0.6rem;
-}
-
-.hero-card ul {
-  margin: 0;
-  padding-left: 1.2rem;
-  display: grid;
-  gap: 0.65rem;
-  color: var(--muted);
-}
-
-.cards {
-  margin-top: 2rem;
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 1rem;
-}
-
-.card {
-  border: 1px solid var(--line);
-  border-radius: 16px;
-  padding: 1.3rem;
-  background: linear-gradient(180deg, rgba(255, 255, 255, 0.08), rgba(255, 255, 255, 0.02));
-}
-
-.card p {
-  margin-top: 0.5rem;
-}
-
-.about-grid,
-.contact-grid {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 1.6rem;
-  align-items: start;
-}
-
-.about-metrics {
-  display: grid;
-  grid-template-columns: 1fr;
-  gap: 0.85rem;
-}
-
-.about-metrics div {
-  padding: 1.1rem;
-  border: 1px solid var(--line);
-  border-radius: 14px;
-  background: rgba(255, 255, 255, 0.03);
-}
-
-.about-metrics strong {
-  display: block;
-  font-family: "Barlow Condensed", sans-serif;
-  font-size: 2.2rem;
-}
-
-.gallery-grid {
-  margin-top: 1.7rem;
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 0.9rem;
-}
-
-.tile {
-  margin: 0;
-  border-radius: 14px;
-  min-height: 230px;
-  overflow: hidden;
-  position: relative;
-  border: 1px solid var(--line);
-}
-
-.tile img {
-  width: 100%;
-  height: 100%;
-  min-height: 230px;
-  object-fit: cover;
-}
-
-.tile figcaption {
-  position: absolute;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  padding: 0.9rem;
-  background: linear-gradient(to top, rgba(15, 23, 31, 0.9), rgba(15, 23, 31, 0.08));
-  color: #fff;
-  font-weight: 600;
-}
-
-.quotes {
-  margin-top: 1.7rem;
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 1rem;
-}
-
-.quote {
-  margin: 0;
-  border-radius: 14px;
-  border: 1px solid var(--line);
-  background: rgba(255, 255, 255, 0.03);
-  padding: 1.3rem;
-}
-
-.quote p {
-  color: var(--text);
-}
-
-.quote cite {
-  margin-top: 0.75rem;
-  display: block;
-  color: var(--accent-alt);
-  font-style: normal;
-  font-weight: 700;
-}
-
-.contact-list {
-  list-style: none;
-  margin: 1rem 0 0;
-  padding: 0;
-  display: grid;
-  gap: 0.4rem;
-  color: var(--text);
-}
-
-.contact-list a {
-  color: var(--text);
-  text-decoration: none;
-}
-
-.contact-form {
-  border: 1px solid var(--line);
-  border-radius: 16px;
-  padding: 1.2rem;
-  background: rgba(255, 255, 255, 0.03);
-  display: grid;
-  gap: 0.55rem;
-}
-
-.contact-form label {
-  font-weight: 600;
-}
-
-.contact-form input,
-.contact-form textarea {
-  width: 100%;
-  border: 1px solid var(--line);
-  border-radius: 10px;
-  padding: 0.72rem;
-  font: inherit;
-  color: var(--text);
-  background: rgba(255, 255, 255, 0.04);
-}
-
-.contact-form input:focus,
-.contact-form textarea:focus {
-  outline: 2px solid rgba(255, 193, 69, 0.35);
-  border-color: rgba(255, 193, 69, 0.45);
-}
-
-.site-footer {
-  padding: 1rem 0 2.4rem;
-  border-top: 1px solid var(--line);
-}
-
-.footer-wrap {
-  display: flex;
-  justify-content: space-between;
-  gap: 0.9rem;
-  align-items: center;
-}
-
-.footer-wrap a {
-  color: var(--accent-alt);
-  text-decoration: none;
-}
-
-.nav-toggle {
-  display: none;
-}
-
-.reveal,
-.reveal-delay {
-  opacity: 0;
-  transform: translateY(14px);
-  transition: opacity 0.75s ease, transform 0.75s ease;
-}
-
-.reveal-delay {
-  transition-delay: 120ms;
-}
-
-.reveal.is-visible,
-.reveal-delay.is-visible {
-  opacity: 1;
-  transform: none;
-}
-
-@media (max-width: 980px) {
-  .hero-grid,
-  .about-grid,
-  .contact-grid,
-  .cards,
-  .gallery-grid,
-  .quotes {
-    grid-template-columns: repeat(2, 1fr);
-  }
-
-  .hero-copy {
-    grid-column: 1 / -1;
-  }
-}
-
-@media (max-width: 760px) {
-  .section {
-    padding: 4.4rem 0;
-  }
-
-  .nav-toggle {
-    display: inline-flex;
-    padding: 0.46rem 0.72rem;
-    border-radius: 8px;
-    border: 1px solid var(--line);
-    background: rgba(255, 255, 255, 0.08);
-    color: var(--text);
-  }
-
-  .main-nav {
-    position: absolute;
-    top: 78px;
-    left: 0;
-    right: 0;
-    flex-direction: column;
-    align-items: flex-start;
-    gap: 0.9rem;
-    padding: 1rem 4vw 1.3rem;
-    background: rgba(12, 19, 27, 0.98);
-    border-bottom: 1px solid var(--line);
-    opacity: 0;
-    pointer-events: none;
-    transform: translateY(-6px);
-    transition: opacity 0.2s ease, transform 0.2s ease;
-  }
-
-  .main-nav.is-open {
-    opacity: 1;
-    pointer-events: auto;
-    transform: translateY(0);
-  }
-
-  .main-nav .btn-nav {
-    margin-top: 0.35rem;
-  }
-
-  .hero {
-    padding-top: 4.8rem;
-  }
-
-  .hero-grid,
-  .about-grid,
-  .contact-grid,
-  .cards,
-  .gallery-grid,
-  .quotes,
-  .footer-wrap {
-    grid-template-columns: 1fr;
-    display: grid;
-  }
-
-  .footer-wrap {
-    justify-items: start;
-  }
-}
-
-
-const navToggle = document.getElementById("navToggle");
-const mainNav = document.getElementById("mainNav");
-
-if (navToggle && mainNav) {
-  navToggle.addEventListener("click", () => {
-    const isOpen = mainNav.classList.toggle("is-open");
-    navToggle.setAttribute("aria-expanded", String(isOpen));
-    navToggle.textContent = isOpen ? "Close" : "Menu";
-  });
-
-  mainNav.querySelectorAll("a").forEach((link) => {
-    link.addEventListener("click", () => {
-      mainNav.classList.remove("is-open");
-      navToggle.setAttribute("aria-expanded", "false");
-      navToggle.textContent = "Menu";
-    });
-  });
-}
-
-const observer = new IntersectionObserver(
-  (entries) => {
-    entries.forEach((entry) => {
-      if (entry.isIntersecting) {
-        entry.target.classList.add("is-visible");
-      }
-    });
-  },
-  { threshold: 0.2 }
-);
-
-document.querySelectorAll(".reveal, .reveal-delay").forEach((el) => {
-  observer.observe(el);
-});
-
 <!doctype html>
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Revive Auto Body | Collision & Paint Repair</title>
-  <meta name="description" content="Revive Auto Body delivers precision collision repair, paint restoration, and dent removal with honest service and quick turnaround." />
+  <title>Revive Auto Body | Auto Body Repair in Omaha, NE</title>
+  <meta
+    name="description"
+    content="Revive Auto Body in Omaha, Nebraska provides collision repair, paint refinishing, dent removal, and bumper repair with fast turnaround and insurance claim support."
+  />
+  <link rel="canonical" href="https://sfrancj.github.io/Revive-Auto-Body/" />
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="Revive Auto Body | Auto Body Repair in Omaha, NE" />
+  <meta
+    property="og:description"
+    content="Collision repair, paint refinishing, dent removal, and bumper work for Omaha drivers."
+  />
+  <meta property="og:url" content="https://sfrancj.github.io/Revive-Auto-Body/" />
+  <meta property="og:image" content="https://sfrancj.github.io/Revive-Auto-Body/assets/ABD48387-9C1A-44B4-950F-CE8A502FF096.JPG" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Revive Auto Body | Auto Body Repair in Omaha, NE" />
+  <meta
+    name="twitter:description"
+    content="Revive Auto Body serves Omaha with collision repair, paint work, dent removal, and bumper restoration."
+  />
+  <meta name="twitter:image" content="https://sfrancj.github.io/Revive-Auto-Body/assets/ABD48387-9C1A-44B4-950F-CE8A502FF096.JPG" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@500;700;800&family=Manrope:wght@400;500;700&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
+  <!-- Site header -->
   <header class="site-header" id="top">
     <div class="wrap nav-wrap">
       <a class="brand" href="#top">
@@ -563,6 +48,7 @@ document.querySelectorAll(".reveal, .reveal-delay").forEach((el) => {
   </header>
 
   <main>
+    <!-- Hero section -->
     <section class="hero">
       <div class="hero-bg-shape"></div>
       <div class="wrap hero-grid">
@@ -587,6 +73,7 @@ document.querySelectorAll(".reveal, .reveal-delay").forEach((el) => {
       </div>
     </section>
 
+    <!-- Services section -->
     <section class="services section" id="services">
       <div class="wrap">
         <p class="kicker">What We Do</p>
@@ -612,6 +99,7 @@ document.querySelectorAll(".reveal, .reveal-delay").forEach((el) => {
       </div>
     </section>
 
+    <!-- About section -->
     <section class="about section" id="about">
       <div class="wrap about-grid">
         <div class="about-copy reveal">
@@ -637,31 +125,33 @@ document.querySelectorAll(".reveal, .reveal-delay").forEach((el) => {
       </div>
     </section>
 
+    <!-- Project gallery -->
     <section class="gallery section" id="gallery">
       <div class="wrap">
         <p class="kicker">Recent Projects</p>
         <h2>Before & After Results</h2>
         <div class="gallery-grid">
           <figure class="tile reveal">
-            <img src="assets/ABD48387-9C1A-44B4-950F-CE8A502FF096.JPG" alt="Before and after collision repair project one" />
+            <img src="assets/ABD48387-9C1A-44B4-950F-CE8A502FF096.JPG" alt="Two-panel before and after photo showing a front-end collision repair with the completed vehicle reassembled and refinished." loading="lazy" />
             <figcaption>Before & After Collision Repair 01</figcaption>
           </figure>
           <figure class="tile reveal">
-            <img src="assets/FE6BB85E-C775-4360-8716-ED35A4E1F579.JPG" alt="Before and after collision repair project two" />
+            <img src="assets/FE6BB85E-C775-4360-8716-ED35A4E1F579.JPG" alt="Two-panel before and after photo showing front corner collision damage and the restored finished repair." loading="lazy" />
             <figcaption>Before & After Collision Repair 02</figcaption>
           </figure>
           <figure class="tile reveal">
-            <img src="assets/AF7A4D6C-CDDF-4D87-817F-1C83EA74C806.JPG" alt="Before and after collision repair project three" />
+            <img src="assets/AF7A4D6C-CDDF-4D87-817F-1C83EA74C806.JPG" alt="Two-panel before and after photo showing severe front-end damage followed by a completed repair." loading="lazy" />
             <figcaption>Before & After Collision Repair 03</figcaption>
           </figure>
           <figure class="tile reveal">
-            <img src="assets/8F0A3070-C500-44D5-8DD2-5C953E162FEC.JPG" alt="Before and after collision repair project four" />
+            <img src="assets/8F0A3070-C500-44D5-8DD2-5C953E162FEC.JPG" alt="Two-panel before and after photo showing major front-end impact damage and the final restored vehicle." loading="lazy" />
             <figcaption>Before & After Collision Repair 04</figcaption>
           </figure>
         </div>
       </div>
     </section>
 
+    <!-- Contact section -->
     <section class="contact section" id="contact">
       <div class="wrap contact-grid">
         <div class="contact-copy reveal">
@@ -690,6 +180,7 @@ document.querySelectorAll(".reveal, .reveal-delay").forEach((el) => {
     </section>
   </main>
 
+  <!-- Site footer -->
   <footer class="site-footer">
     <div class="wrap footer-wrap">
       <p>&copy; <span id="year"></span> Revive Auto Body. All rights reserved.</p>
